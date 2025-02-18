@@ -70,20 +70,20 @@ export const Navbar = () => {
   const [activeLink, setActiveLink] = React.useState("/");
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      document.querySelectorAll("section[id]").forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-          if (section.id !== activeLink) setActiveLink(section.id);
-        }
-      });
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    //const handleScroll = () => {
+    //  document.querySelectorAll("section[id]").forEach((section) => {
+    //    const rect = section.getBoundingClientRect();
+    //    if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+    //      if (section.id !== activeLink) setActiveLink(section.id);
+    //    }
+    //  });
+    //};
+    //
+    //handleScroll();
+    //window.addEventListener("scroll", handleScroll);
+    //return () => {
+    //  window.removeEventListener("scroll", handleScroll);
+    //};
   }, []);
 
   return (
