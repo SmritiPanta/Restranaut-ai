@@ -92,8 +92,8 @@ export const Navbar = () => {
         <HeaderContent>
           <Tabs.Root
             value={activeLink}
-            onValueChange={() => {
-              //if (ev.value !== activeLink) setActiveLink(ev.value);
+            onValueChange={(ev) => {
+              if (ev.value !== activeLink) setActiveLink(ev.value);
             }}>
             <Tabs.List asChild>
               <nav className="hidden lg:flex items-center gap-1 me-4 relative overflow-hidden">
@@ -136,8 +136,8 @@ export const Navbar = () => {
                   asChild
                   value={activeLink}
                   orientation="vertical"
-                  onValueChange={() => {
-                    //if (ev.value !== activeLink) setActiveLink(ev.value);
+                  onValueChange={(ev) => {
+                    if (ev.value !== activeLink) setActiveLink(ev.value);
                   }}>
                   <Container className="grid md:grid-cols-2 p-0 text-5xl font-medium tracking-tight relative">
                     <Tabs.Indicator className="w-(--width) h-(--height) bg-primary/15 z-10" />
