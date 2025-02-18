@@ -1,0 +1,189 @@
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+
+@plugin "@tailwindcss/forms";
+
+/* variants */
+@variant hover (&:hover);
+@variant dark (&:where(.dark, .dark *));
+@variant intersect (&:not([no-intersect]));
+
+/* colors are defined at runtime through root layout.tsx file */
+@theme {
+  --color-ring: var(--color-ring);
+  --color-input: var(--color-input);
+  --color-border: var(--color-border);
+
+  --color-foreground: var(--color-foreground);
+  --color-background: var(--color-background);
+
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+
+  --color-destructive: var(--color-destructive);
+  --color-destructive-foreground: var(--color-destructive-foreground);
+
+  --color-success: var(--color-success);
+  --color-success-foreground: var(--color-success-foreground);
+
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+
+  --color-popover: var(--color-popover);
+  --color-popover-foreground: var(--color-popover-foreground);
+
+  --color-card: var(--color-card);
+  --color-card-foreground: var(--color-card-foreground);
+
+  --color-highlight: var(--color-highlight);
+  --color-highlight-foreground: var(--color-highlight-foreground);
+
+  --radius-xl: calc(var(--border-radius) + 4px);
+  --radius-lg: var(--border-radius);
+  --radius-md: calc(var(--border-radius) - 2px);
+  --radius-sm: calc(var(--border-radius) - 4px);
+}
+
+@layer base {
+  :root {
+    --color-ring: #d70000;
+    --color-input: #e5e5e5;
+    --color-border: #e5e5e5;
+
+    --color-foreground: #0a0a0a;
+    --color-background: #ffffff;
+
+    --color-primary: #d70000;
+    --color-primary-foreground: #ffdbdb;
+
+    --color-secondary: #f5f5f5;
+    --color-secondary-foreground: #171717;
+
+    --color-destructive: #e63946;
+    --color-destructive-foreground: #fafafa;
+
+    --color-success: #39a561;
+    --color-success-foreground: #fafafa;
+
+    --color-muted: #f5f5f5;
+    --color-muted-foreground: #737373;
+
+    --color-accent: #f5f5f5;
+    --color-accent-foreground: #171717;
+
+    --color-popover: #ffffff;
+    --color-popover-foreground: #0a0a0a;
+
+    --color-card: #ffffff;
+    --color-card-foreground: #0a0a0a;
+
+    --color-highlight: #d70000;
+    --color-highlight-foreground: #ffdbdb;
+
+    --header-height: 4rem;
+    --border-radius: 0.75rem;
+  }
+  .dark {
+    --color-ring: #d70000;
+    --color-input: #262626;
+    --color-border: #262626;
+
+    --color-foreground: #fafafa;
+    --color-background: #0a0a0a;
+
+    --color-primary: #d70000;
+    --color-primary-foreground: #ffdbdb;
+
+    --color-secondary: #262626;
+    --color-secondary-foreground: #fafafa;
+
+    --color-destructive: #6f1d1b;
+    --color-destructive-foreground: #fafafa;
+
+    --color-success: #39a561;
+    --color-success-foreground: #fafafa;
+
+    --color-muted: #262626;
+    --color-muted-foreground: #a2a2a2;
+
+    --color-accent: #262626;
+    --color-accent-foreground: #fafafa;
+
+    --color-popover: #0a0a0a;
+    --color-popover-foreground: #fafafa;
+
+    --color-card: #0a0a0a;
+    --color-card-foreground: #fafafa;
+
+    --color-highlight: #d70000;
+    --color-highlight-foreground: #ffdbdb;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    @apply select-none scheme-light-dark h-full w-full;
+  }
+
+  body {
+    overscroll-behavior: contain;
+    -webkit-text-size-adjust: 100%;
+
+    /* prettier-ignore  */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    @apply antialiased bg-muted/40 text-foreground relative h-full max-w-full overflow-x-clip;
+  }
+
+  input:-webkit-autofill {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: var(--color-foreground) !important;
+  }
+}
+
+@layer utilities {
+  .font-essen {
+    font-family: var(--font-essen);
+  }
+
+  .bg-body {
+    @apply bg-muted/40;
+  }
+}
+
+.AccordionContent {
+  overflow: hidden;
+}
+.AccordionContent[data-state="open"] {
+  animation: slideDown 200ms linear;
+}
+.AccordionContent[data-state="closed"] {
+  animation: slideUp 200ms linear;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
