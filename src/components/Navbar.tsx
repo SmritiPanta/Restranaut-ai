@@ -12,17 +12,17 @@ import { AppLogo } from "@/components/AppLogo";
 import { Container } from "@/components/Container";
 import { SITE_LINKS, SOCIAL_LINKS } from "@/lib/siteConfig";
 
-function debounce<T extends (...args: any[]) => void>(
-  func: T,
-  delay = 200
-): (...args: Parameters<T>) => void {
-  let timer: ReturnType<typeof setTimeout>;
-
-  return (...args: Parameters<T>) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => func(...args), delay);
-  };
-}
+//function debounce<T extends (...args: any[]) => void>(
+//  func: T,
+//  delay = 200
+//): (...args: Parameters<T>) => void {
+//  let timer: ReturnType<typeof setTimeout>;
+//
+//  return (...args: Parameters<T>) => {
+//    clearTimeout(timer);
+//    timer = setTimeout(() => func(...args), delay);
+//  };
+//}
 
 function HeaderContent({ children }: { children?: React.ReactNode }) {
   const { setTheme } = useTheme();
@@ -70,14 +70,14 @@ export const Navbar = () => {
   const [activeLink, setActiveLink] = React.useState("/");
 
   React.useEffect(() => {
-    const handleScroll = debounce(() => {
+    const handleScroll = () => {
       document.querySelectorAll("section[id]").forEach((section) => {
         const rect = section.getBoundingClientRect();
         if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
           if (section.id !== activeLink) setActiveLink(section.id);
         }
       });
-    });
+    };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll);

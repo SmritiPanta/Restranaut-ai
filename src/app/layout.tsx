@@ -6,6 +6,7 @@ import { twJoin } from "tailwind-merge";
 import { ThemeProvider } from "next-themes";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
@@ -52,6 +53,7 @@ export default function RootLayout(
         <ThemeProvider defaultTheme="dark" attribute="class">
           {props.children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
