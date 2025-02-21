@@ -8,15 +8,39 @@ import { Container } from "@/components/Container";
 const gradientColors = ["#FF758C", "#7A691E", "#311EFF", "#000"];
 
 export default function HeroSection() {
-  const [mounted, setMounted] = React.useState(false);
+  const [enableBgEffect, setEnableBgEffect] = React.useState(true);
+
   React.useEffect(() => {
-    setMounted(true);
+    /** eslint-disable-next-line eqeqeq */
+    setEnableBgEffect(localStorage.getItem("bg_effect") != "false");
   }, []);
+
+  // React.useEffect(() => {
+  //   setEnableBgEffect(true);
+  // }, []);
+
   return (
     <section
       id="/"
-      className={twJoin("relative dark", !mounted && "bg-black text-white")}>
-      <Container className="grid lg:grid-cols-2 pt-32 pb-16 sm:pt-48 md:py-52 gap-8 lg:gap-16 z-10">
+      className={twJoin(
+        "relative",
+        !enableBgEffect && "bg-background text-foreground"
+      )}>
+      <Container
+        className={twJoin(
+          "grid lg:grid-cols-2 pt-32 pb-16 sm:pt-48 md:py-52 gap-8 lg:gap-16 z-10",
+          enableBgEffect && "dark"
+        )}>
+        <button
+          className="size-48 absolute right-0 top-16 opacity-0 z-1000"
+          onClick={() => {
+            setEnableBgEffect((v) => {
+              localStorage.setItem("bg_effect", JSON.stringify(!v));
+              return !v;
+            });
+          }}
+        />
+
         <div>
           <h1
             className="text-5xl font-medium tracking-tight text-foreground sm:text-7xl text-balance"
@@ -25,10 +49,10 @@ export default function HeroSection() {
           </h1>
 
           <p
-            className="mt-6 text-xl text-white/70 md:font-medium text-pretty"
+            className="mt-6 text-xl text-muted-foreground md:font-medium text-pretty"
             data-aos="fade-right"
             data-aos-delay="200">
-            An all-in-one platform built by restauranteurs, for restauranteurs,
+            An all-in-one platform built by restaurateurs, for restaurateurs,
             designed to streamline operations, enhance customer experiences, and
             drive business growth.
           </p>
@@ -49,11 +73,11 @@ export default function HeroSection() {
         <div className="flex items-center justify-center"></div>
       </Container>
 
-      <GradientScene colors={gradientColors} />
+      {enableBgEffect && <GradientScene colors={gradientColors} />}
 
       <svg
         viewBox="0 0 1600 94"
-        className="absolute inset-x-0 bottom-0 fill-black">
+        className="absolute inset-x-0 bottom-0 fill-muted">
         <path d="M1600 93.9999V0.180908C1600 0.180908 1245.36 93.2252 828.666 93.9999H1600ZM818.216 93.9999H0V0.180908C0 0.180908 391 92.5603 814 93.9888C815.406 93.9936 816.811 93.9973 818.216 93.9999Z" />
       </svg>
     </section>

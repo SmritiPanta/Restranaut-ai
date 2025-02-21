@@ -21,11 +21,11 @@ export default function StatsSection({ classes, stats }: StatsSectionProps) {
   return (
     <section
       id="stats"
-      className={twMerge("bg-black text-white py-16", classes?.root)}>
+      className={twMerge("bg-muted text-foreground py-16", classes?.root)}>
       <Container className="grid lg:grid-cols-2 gap-12 xl:gap-20 xxl:gap-[100px]">
         <div className="flex items-center">
           <h2
-            className="text-center text-4xl font-bold leading-tighter text-white lg:text-left lg:text-5xl"
+            className="text-center text-4xl font-bold leading-tighter text-foreground lg:text-left lg:text-5xl"
             data-aos="fade-right">
             We earn trust by working efficiently
           </h2>
@@ -39,13 +39,11 @@ export default function StatsSection({ classes, stats }: StatsSectionProps) {
               data-aos="zoom-out"
               data-aos-delay={(idx + 1) * ANIMATION_DELAY}>
               <div>
-                <div className="mb-[5px] font-PublicSans text-5xl font-bold leading-[1.14] text-[#FDFBF9] xl:text-[56px]">
-                  <span className="start-number">
-                    <CountUp enableScrollSpy end={data.count} delay={idx + 1} />
-                  </span>
+                <div className="mb-[5px] text-5xl font-bold leading-[1.14] text-foreground xl:text-[56px]">
+                  <CountUp enableScrollSpy end={data.count} delay={idx + 1} />
                   {data.unit}
                 </div>
-                <span className="text-[#FDFBF9]/60">{data.label}</span>
+                <span className="text-muted-foreground">{data.label}</span>
               </div>
             </div>
           ))}

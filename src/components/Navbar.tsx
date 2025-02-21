@@ -193,6 +193,7 @@ export const Navbar = () => {
                           {SOCIAL_LINKS.map((link, idx) => (
                             <li key={idx}>
                               <a
+                                target="_blank"
                                 href={link.href}
                                 title={`Follow us on ${link.label}`}
                                 className="transition text-muted-foreground hover:text-foreground [&_svg]:size-6">

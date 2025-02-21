@@ -24,7 +24,7 @@ export default function FeaturesSection({
     <section
       id="/features"
       className={twMerge(
-        "pt-16 bg-muted text-foreground scroll-mt-16",
+        "py-16 bg-background text-foreground scroll-mt-16",
         classes?.root
       )}>
       <Container>

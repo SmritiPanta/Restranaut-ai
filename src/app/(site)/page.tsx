@@ -14,7 +14,6 @@ import {
 } from "react-icons/fa6";
 
 import { Navbar } from "@/components/Navbar";
-import { Container } from "@/components/Container";
 import HeroSection from "@/components/homepage/hero-section/HeroSection";
 import StatsSection from "@/components/homepage/StatsSection";
 import FeaturesSection, {
@@ -152,7 +151,8 @@ export default function Home() {
         stats={[
           { count: 3, unit: "+", label: "Years of experience" },
           { count: 84, unit: "K", label: "Customers worldwide" },
-          { count: 100, unit: "+", label: "Available services and tech" }
+          { count: 100, unit: "+", label: "Available services and tech" },
+          
         ]}
       />
 

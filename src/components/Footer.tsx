@@ -95,6 +95,7 @@ export const Footer: React.FC<FooterProps> = ({ classes }) => {
                 <a
                   key={idx}
                   href={link.href}
+                  target="_blank"
                   className="inline-flex [&_svg]:size-6 text-muted-foreground hover:text-foreground">
                   {link.icon}
                 </a>
@@ -104,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({ classes }) => {
         </div>
       </Container>
 
-      <div className="bg-muted">
+      <div className="bg-muted border-t">
         <Container className="py-2 flex items-center justify-center text-muted-foreground text-sm font-medium">
           &copy; Copyright {new Date().getFullYear()}, All Rights Reserved
         </Container>

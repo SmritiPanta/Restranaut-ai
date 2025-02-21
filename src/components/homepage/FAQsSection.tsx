@@ -23,7 +23,7 @@ export default function FAQsSection({ classes, faqs }: FAQsSectionProps) {
   return (
     <section
       id="/faqs"
-      className={twMerge("py-16 bg-muted scroll-mt-16", classes?.root)}>
+      className={twMerge("py-16 bg-background scroll-mt-16", classes?.root)}>
       <Container className="grid lg:grid-cols-3 gap-y-8">
         <div className="max-w-2xl">
           <h2 className="text-4xl lg:text-5xl font-bold lg:tracking-tight">
