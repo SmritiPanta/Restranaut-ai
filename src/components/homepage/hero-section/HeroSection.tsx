@@ -10,7 +10,8 @@ const gradientColors = ["#FF758C", "#7A691E", "#311EFF", "#9B009B"];
 
 type HeroSectionProps = {
   title: string;
-  description: string;
+  description: string | React.ReactElement;
+
   gradientColors: string[];
   actions?: Array<ButtonProps & { href?: string }>;
   children?: React.ReactNode;
@@ -57,12 +58,16 @@ export default function HeroSection({
             {title}
           </h1>
 
-          <p
-            className="mt-6 text-xl text-foreground/70 md:font-medium text-pretty"
-            data-aos="fade-right"
-            data-aos-delay="200">
-            {description}
-          </p>
+          {typeof description === "string" ? (
+            <p
+              className="mt-6 text-xl text-foreground/70 md:font-medium text-pretty"
+              data-aos="fade-right"
+              data-aos-delay="200">
+              {description}
+            </p>
+          ) : (
+            description
+          )}
 
           {actions?.length >= 0 && (
             <div

@@ -27,7 +27,8 @@ export const SITE_LINKS = {
       { label: "Home", href: "/#/" },
       { label: "Services", href: "/#/services" },
       { label: "Features", href: "/#/features" },
-      { label: "FAQs", href: "/#/faqs" }
+      { label: "FAQs", href: "/#/faqs" },
+      { label: "Contact Us", href: "/contact-us" }
     ] as Array<SiteLink>
   },
   resourcesLink: {
