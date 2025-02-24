@@ -89,55 +89,11 @@ export default function TestimonialsSection() {
             ))}
           </CarouselContent>
 
-          <div className="flex items-center py-8">
+          <div className="flex items-center py-8 gap-4">
             <CarouselPrevious className="relative translate-0 inset-0 w-10 h-10" />
             <CarouselNext className="relative translate-0 inset-0 w-10 h-10 " />
           </div>
         </Carousel>
-        {/* <Carousel>
-            <CarouselContent>
-              {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index}>
-                  <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
-                    <div className="md:w-1/2 md:pl-8 px-3 space-y-6 mt-8">
-                      <blockquote className="text-xl font-medium leading-7">
-                        &quot;{testimonial.quote}&quot;
-                      </blockquote>
-                      <div className="space-y-2">
-                        <div className="text-xl font-medium">
-                          {testimonial.name}
-                        </div>
-                        <div className="text-xl font-medium text-muted-foreground">
-                          {testimonial.position}
-                        </div>
-                        <Image
-                          src={testimonial.logo || "/placeholder.svg"}
-                          alt={`${testimonial.name}'s company logo`}
-                          width={100}
-                          height={50}
-                          className="mt-4"
-                        />
-                      </div>
-                    </div>
-                    <div className="relative overflow-hidden">
-                      <Image
-                        src={testimonial.image || "/placeholder.svg"}
-                        alt={testimonial.name}
-                        width={310}
-                        height={375}
-                        className="object-cover object-center rounded-md"
-                      />
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className=" flex gap-4 absolute -bottom-12 left-10">
-              <CarouselPrevious className="me-2 w-10 h-10" />
-              <CarouselNext className=" w-10 h-10 " />
-            </div>
-          </Carousel>
-*/}
       </Container>
     </section>
   );
