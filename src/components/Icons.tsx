@@ -12,3 +12,7 @@ export {
 } from "react-icons/fa6";
 
 export { HiMenuAlt4 as MenuIcon } from "react-icons/hi";
+export {
+  LuArrowLeft as ArrowLeftIcon,
+  LuArrowRight as ArrowRightIcon
+} from "react-icons/lu";

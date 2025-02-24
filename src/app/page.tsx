@@ -23,6 +23,7 @@ import FeaturesSection, {
 import ServicesSection, {
   type Service
 } from "@/components/homepage/ServicesSection";
+import TestimonialsSection from "@/components/homepage/TestimonialsSection";
 import FAQsSection, { type FAQ } from "@/components/homepage/FAQsSection";
 import { Footer } from "@/components/Footer";
 import CTASection from "@/components/homepage/CTASection";
@@ -160,9 +161,9 @@ export default function Home() {
 
       <FeaturesSection features={features} />
       <ServicesSection services={services} />
-      <FAQsSection faqs={faqs} />
-
+      <TestimonialsSection />
       <CTASection />
+      <FAQsSection faqs={faqs} />
 
       <Footer classes={{ curve: "fill-background" }} />
     </>
