@@ -10,18 +10,25 @@ import { ANIMATION_DELAY, SITE_LINKS, SOCIAL_LINKS } from "@/lib/siteConfig";
 
 export type FooterProps = {
   classes?: {
-    curve?: ClassValue;
+    // curve?: ClassValue;
+    root?: ClassValue;
+    input?: ClassValue;
+    copyrightRoot?: ClassValue;
   };
 };
 
 export const Footer: React.FC<FooterProps> = ({ classes }) => {
   return (
-    <footer className="relative bg-background text-foreground">
-      <svg
+    <footer
+      className={twMerge(
+        "relative bg-background text-foreground",
+        classes?.root
+      )}>
+      {/*<svg
         viewBox="0 0 1600 99"
         className={twMerge("w-full bg-muted fill-background", classes?.curve)}>
         <path d="M0 100 Q800 -50 1600 100 L1600 100 L0 100 Z" />
-      </svg>
+      </svg>*/}
 
       <Container className="grid lg:grid-cols-2 py-8 gap-y-8">
         <div className="flex flex-col gap-y-7" data-aos="fade-right">
@@ -47,7 +54,10 @@ export const Footer: React.FC<FooterProps> = ({ classes }) => {
                   type="email"
                   name="email"
                   placeholder="eg: johndoe@gmail.com"
-                  className="pl-4 h-12 text-sm font-medium placeholder-muted-foreground w-full max-w-md py-2 rounded-xl bg-muted border-0 ring ring-border focus:ring-2 focus:ring-primary focus:outline-none pe-30"
+                  className={twMerge(
+                    "pl-4 h-12 text-sm font-medium placeholder-muted-foreground w-full max-w-md py-2 rounded-xl bg-muted border-0 ring ring-border focus:ring-2 focus:ring-primary focus:outline-none pe-30",
+                    classes?.input
+                  )}
                 />
                 <Button className="absolute right-1 top-1">Subscribe</Button>
               </div>
@@ -105,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({ classes }) => {
         </div>
       </Container>
 
-      <div className="bg-muted border-t">
+      <div className={twMerge("bg-muted border-t", classes?.copyrightRoot)}>
         <Container className="py-2 flex items-center justify-center text-muted-foreground text-sm font-medium">
           &copy; Copyright {new Date().getFullYear()}, All Rights Reserved
         </Container>

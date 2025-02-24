@@ -139,20 +139,22 @@ const faqs: Array<FAQ> = [
 ];
 
 export default function Home() {
-  React.useEffect(() => {
-    AOS.init({ duration: 1000, mirror: false });
-  }, []);
-
   return (
     <>
       <Navbar />
-      <HeroSection />
+      <HeroSection
+        title="Reaching Customers In the Digital Stratosphere..."
+        description="An all-in-one platform built by restaurateurs, for restaurateurs, designed to streamline operations, enhance customer experiences, and drive business growth."
+        gradientColors={["#FF758C", "#7A691E", "#311EFF", "#9B009B"]}
+        actions={[
+          { children: "Contact Us", size: "xl", className: "rounded-full" }
+        ]}
+      />
       <StatsSection
         stats={[
           { count: 3, unit: "+", label: "Years of experience" },
           { count: 84, unit: "K", label: "Customers worldwide" },
-          { count: 100, unit: "+", label: "Available services and tech" },
-          
+          { count: 100, unit: "+", label: "Available services and tech" }
         ]}
       />
 

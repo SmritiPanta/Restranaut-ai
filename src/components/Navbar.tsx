@@ -38,8 +38,9 @@ function HeaderContent({ children }: { children?: React.ReactNode }) {
         <Button
           size="sm"
           variant="inverted"
-          className="hidden md:inline-flex rounded-full">
-          Request a demo
+          className="hidden md:inline-flex rounded-full"
+          asChild>
+          <Link href="/request-demo">Request a demo</Link>
         </Button>
 
         <Button
@@ -67,7 +68,7 @@ function HeaderContent({ children }: { children?: React.ReactNode }) {
 }
 
 export const Navbar = () => {
-  const [activeLink, setActiveLink] = React.useState("/");
+  const [activeLink, setActiveLink] = React.useState("");
 
   React.useEffect(() => {
     //const handleScroll = () => {
@@ -87,130 +88,143 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <Dialog.Root>
-      <header className="fixed top-0 inset-x-0 bg-background/90 backdrop-blur-md z-100 border-b">
-        <HeaderContent>
-          <Tabs.Root
-            value={activeLink}
-            onValueChange={(ev) => {
-              if (ev.value !== activeLink) setActiveLink(ev.value);
-            }}>
-            <Tabs.List asChild>
-              <nav className="hidden lg:flex items-center gap-1 me-4 relative overflow-hidden">
-                <Tabs.Indicator className="bg-primary/15 rounded-lg h-(--height) w-(--width)" />
-                {SITE_LINKS.navlinks.links.map((link) => (
-                  <Tabs.Trigger
+    <>
+      <header></header>
+
+      <Dialog.Root>
+        <header className="fixed top-0 inset-x-0 bg-background/90 backdrop-blur-md z-100 border-b">
+          <HeaderContent>
+            <Tabs.Root
+              value={activeLink}
+              onValueChange={(ev) => {
+                if (ev.value !== activeLink) setActiveLink(ev.value);
+              }}>
+              <Tabs.List asChild>
+                <nav className="hidden lg:flex items-center gap-1 me-4 relative overflow-hidden">
+                  <Tabs.Indicator className="bg-primary/15 rounded-lg h-(--height) w-(--width)" />
+                  {SITE_LINKS.navlinks.links.map((link) => (
+                    <Tabs.Trigger
+                      asChild
+                      key={link.label}
+                      value={link.href.replace("#/", "")}>
+                      <Link
+                        href={link.href}
+                        className="px-4 py-2 rounded-lg text-sm font-medium text-foreground/70 hover:text-foreground aria-selected:!text-primary transition-colors">
+                        {link.label}
+                      </Link>
+                    </Tabs.Trigger>
+                  ))}
+                </nav>
+              </Tabs.List>
+            </Tabs.Root>
+          </HeaderContent>
+        </header>
+
+        <Dialog.Overlay className="max-h-full fixed inset-0 flex flex-col bg-background/90 backdrop-blur-md z-1000">
+          <ScrollArea.Root asChild>
+            <Dialog.Content className="flex-1 flex flex-col overflow-hidden">
+              <div className="border-b border-foreground/20">
+                <HeaderContent />
+              </div>
+              <div className="sr-only">
+                <Dialog.Title>navbar</Dialog.Title>
+                <Dialog.Description>navbar</Dialog.Description>
+              </div>
+
+              <ScrollArea.Viewport>
+                <ScrollArea.Scrollbar orientation="vertical">
+                  <ScrollArea.Thumb />
+                </ScrollArea.Scrollbar>
+                <nav className="flex-1 flex flex-col overflow-hidden">
+                  <Tabs.Root
                     asChild
-                    key={link.label}
-                    value={link.href.replace("#/", "")}>
-                    <Link
-                      href={link.href}
-                      className="px-4 py-2 rounded-lg text-sm font-medium text-foreground/70 hover:text-foreground aria-selected:!text-primary transition-colors">
-                      {link.label}
-                    </Link>
-                  </Tabs.Trigger>
-                ))}
-              </nav>
-            </Tabs.List>
-          </Tabs.Root>
-        </HeaderContent>
-      </header>
-
-      <Dialog.Overlay className="max-h-full fixed inset-0 flex flex-col bg-background/90 backdrop-blur-md z-1000">
-        <ScrollArea.Root asChild>
-          <Dialog.Content className="flex-1 flex flex-col overflow-hidden">
-            <div className="border-b border-foreground/20">
-              <HeaderContent />
-            </div>
-            <div className="sr-only">
-              <Dialog.Title>navbar</Dialog.Title>
-              <Dialog.Description>navbar</Dialog.Description>
-            </div>
-
-            <ScrollArea.Viewport>
-              <ScrollArea.Scrollbar orientation="vertical">
-                <ScrollArea.Thumb />
-              </ScrollArea.Scrollbar>
-              <nav className="flex-1 flex flex-col overflow-hidden">
-                <Tabs.Root
-                  asChild
-                  value={activeLink}
-                  orientation="vertical"
-                  onValueChange={(ev) => {
-                    if (ev.value !== activeLink) setActiveLink(ev.value);
-                  }}>
-                  <Container className="grid md:grid-cols-2 p-0 text-5xl font-medium tracking-tight relative">
-                    <Tabs.Indicator className="w-(--width) h-(--height) bg-primary/15 z-10" />
-                    <Tabs.List className="contents">
-                      {SITE_LINKS.navlinks.links.map((link, idx) => (
-                        <Tabs.Trigger
-                          asChild
-                          key={idx}
-                          value={link.href.replace("#/", "")}>
-                          <Dialog.Close asChild>
-                            <Link
-                              href={link.href}
-                              className="group relative isolate px-6 py-10 sm:py-12 text-foreground md:even:ps-16">
-                              {link.label}
-                              <span className="absolute inset-y-0 -z-10 transition-colors w-screen border-b border-foreground/20 transition md:group-odd:border-r group-odd:right-0 group-even:left-0 group-hover:bg-muted aria-selected:!text-primary" />
-                            </Link>
-                          </Dialog.Close>
-                        </Tabs.Trigger>
-                      ))}
-                    </Tabs.List>
-                  </Container>
-                </Tabs.Root>
-                <div className="border-t">
-                  <Container className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
-                    <div className="pl-2 sm:pl-6">
-                      <h2 className="text-base font-semibold text-foreground">
-                        Our offices
-                      </h2>
-                      <ul className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
-                        <li>
-                          <address className="text-sm not-italic text-muted-foreground grid">
-                            <strong className="text-foreground">USA</strong>
-                            <span>1 Carlsberg Gate</span>
-                            <span>1260, København, USA</span>
-                          </address>
-                        </li>
-
-                        <li>
-                          <address className="text-sm not-italic text-muted-foreground grid">
-                            <strong className="text-foreground">Nepal</strong>
-                            <span>1 Carlsberg Gate</span>
-                            <span>1260, Kalimati, Kathmandu</span>
-                          </address>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="pl-2 sm:pl-16">
-                      <h2 className="text-base font-semibold text-foreground">
-                        Follow us on
-                      </h2>
-                      {SOCIAL_LINKS.length > 0 && (
-                        <ul className="flex gap-x-10 text-white mt-6">
-                          {SOCIAL_LINKS.map((link, idx) => (
-                            <li key={idx}>
-                              <a
-                                target="_blank"
+                    value={activeLink}
+                    orientation="vertical"
+                    onValueChange={(ev) => {
+                      if (ev.value !== activeLink) setActiveLink(ev.value);
+                    }}>
+                    <Container className="grid md:grid-cols-2 p-0 text-5xl font-medium tracking-tight relative">
+                      <Tabs.Indicator className="w-(--width) h-(--height) bg-primary/15 z-10" />
+                      <Tabs.List className="contents">
+                        {SITE_LINKS.navlinks.links.map((link, idx) => (
+                          <Tabs.Trigger
+                            asChild
+                            key={idx}
+                            value={link.href.replace("#/", "")}>
+                            <Dialog.Close asChild>
+                              <Link
                                 href={link.href}
-                                title={`Follow us on ${link.label}`}
-                                className="transition text-muted-foreground hover:text-foreground [&_svg]:size-6">
-                                {link.icon}
-                              </a>
-                            </li>
-                          ))}
+                                className="group relative isolate px-6 py-10 sm:py-12 text-foreground md:even:ps-16">
+                                {link.label}
+                                <span className="absolute inset-y-0 -z-10 transition-colors w-screen border-b border-foreground/20 transition md:group-odd:border-r group-odd:right-0 group-even:left-0 group-hover:bg-muted aria-selected:!text-primary" />
+                              </Link>
+                            </Dialog.Close>
+                          </Tabs.Trigger>
+                        ))}
+                      </Tabs.List>
+                    </Container>
+                  </Tabs.Root>
+                  <div className="p-1">
+                    <Button
+                      variant="inverted"
+                      size="xl"
+                      className="w-full"
+                      asChild>
+                      <Link href="/request-demo">Request a demo</Link>
+                    </Button>
+                  </div>
+                  <div className="border-t">
+                    <Container className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
+                      <div className="pl-2 sm:pl-6">
+                        <h2 className="text-base font-semibold text-foreground">
+                          Our offices
+                        </h2>
+                        <ul className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
+                          <li>
+                            <address className="text-sm not-italic text-muted-foreground grid">
+                              <strong className="text-foreground">USA</strong>
+                              <span>1 Carlsberg Gate</span>
+                              <span>1260, København, USA</span>
+                            </address>
+                          </li>
+
+                          <li>
+                            <address className="text-sm not-italic text-muted-foreground grid">
+                              <strong className="text-foreground">Nepal</strong>
+                              <span>1 Carlsberg Gate</span>
+                              <span>1260, Kalimati, Kathmandu</span>
+                            </address>
+                          </li>
                         </ul>
-                      )}
-                    </div>
-                  </Container>
-                </div>
-              </nav>
-            </ScrollArea.Viewport>
-          </Dialog.Content>
-        </ScrollArea.Root>
-      </Dialog.Overlay>
-    </Dialog.Root>
+                      </div>
+                      <div className="pl-2 sm:pl-16">
+                        <h2 className="text-base font-semibold text-foreground">
+                          Follow us on
+                        </h2>
+                        {SOCIAL_LINKS.length > 0 && (
+                          <ul className="flex gap-x-10 text-white mt-6">
+                            {SOCIAL_LINKS.map((link, idx) => (
+                              <li key={idx}>
+                                <a
+                                  target="_blank"
+                                  href={link.href}
+                                  title={`Follow us on ${link.label}`}
+                                  className="transition text-muted-foreground hover:text-foreground [&_svg]:size-6">
+                                  {link.icon}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </Container>
+                  </div>
+                </nav>
+              </ScrollArea.Viewport>
+            </Dialog.Content>
+          </ScrollArea.Root>
+        </Dialog.Overlay>
+      </Dialog.Root>
+    </>
   );
 };

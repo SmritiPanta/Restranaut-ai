@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import Provider from "./providers";
 
 export const metadata: Metadata = {
   title: {
@@ -51,7 +52,7 @@ export default function RootLayout(
       </head>
       <body className={twJoin(essenFont.variable, interFont.className)}>
         <ThemeProvider defaultTheme="dark" attribute="class">
-          {props.children}
+          <Provider>{props.children}</Provider>
         </ThemeProvider>
         <Analytics />
       </body>

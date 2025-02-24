@@ -60,8 +60,8 @@ export default function ServicesSection({
   return (
     <section
       id="/services"
-      className={twMerge("py-16 bg-muted scroll-mt-16", classes?.root)}>
-      <Container>
+      className={twMerge("py-16 bg-background scroll-mt-16", classes?.root)}>
+      <Container className="bg-muted border lg:rounded-lg overflow-x-clip">
         {services.map((service, idx) => (
           <div
             key={idx}

@@ -50,7 +50,7 @@ export default function FAQsSection({ classes, faqs }: FAQsSectionProps) {
               data-aos="fade-left"
               data-aos-delay={(idx + 1) * ANIMATION_DELAY}>
               <Accordion.Trigger className="group flex items-center text-left gap-4 cursor-pointer w-full">
-                <Accordion.Header className="transition-colors text-sm md:text-base font-medium text-foreground/80 hover:text-foreground group-aria-expanded:!text-primary">
+                <Accordion.Header className="transition-colors text-sm md:text-base font-medium text-foreground/80 hover:text-foreground group-aria-expanded:!text-foreground">
                   {faq.question}
                 </Accordion.Header>
                 <FaChevronDown className="shrink-0 size-3 group-aria-expanded:-rotate-90 transition-all ms-auto text-muted-foreground" />

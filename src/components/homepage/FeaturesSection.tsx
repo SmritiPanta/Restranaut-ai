@@ -27,7 +27,7 @@ export default function FeaturesSection({
         "py-16 bg-background text-foreground scroll-mt-16",
         classes?.root
       )}>
-      <Container>
+      <Container className="text-center">
         <div data-aos="fade-left">
           <h1 className="text-4xl lg:text-5xl font-bold lg:tracking-tight">
             Your brand, amplified. <br />
@@ -39,13 +39,12 @@ export default function FeaturesSection({
         </div>
       </Container>
 
-      <Container className="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+      <Container className="grid sm:grid-cols-2 lg:grid-cols-3 mt-16 gap-16">
         {features.map((feature, idx) => (
           <div
             key={idx}
             className="flex gap-4 items-start"
-            data-aos="fade-right"
-            data-aos-delay={(idx + 1) * ANIMATION_DELAY}>
+            data-aos="fade-right">
             <div className="mt-1 bg-primary text-primary-foreground rounded-full p-2 size-10 inline-flex items-center justify-center shrink-0 [&_svg]:size-5">
               {feature.icon}
             </div>

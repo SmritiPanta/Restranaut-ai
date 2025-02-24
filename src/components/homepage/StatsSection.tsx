@@ -21,7 +21,7 @@ export default function StatsSection({ classes, stats }: StatsSectionProps) {
   return (
     <section
       id="stats"
-      className={twMerge("bg-muted text-foreground py-16", classes?.root)}>
+      className={twMerge("text-foreground py-16", classes?.root)}>
       <Container className="grid lg:grid-cols-2 gap-12 xl:gap-20 xxl:gap-[100px]">
         <div className="flex items-center">
           <h2
