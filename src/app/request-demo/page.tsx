@@ -148,7 +148,7 @@ export default function Home() {
       <HeroSection
         title={pageData.title}
         description={pageData.description}
-        gradientColors={["#FF758C", "#7A691E", "#311EFF", "#9B009B"]}
+        gradientColors={["#CE6CFF", "#945EDB", "#A56CCF", "#945EDB"]}
         rightContent={<RequestForDemoForm />}>
         <svg
           viewBox="0 0 1440 400"

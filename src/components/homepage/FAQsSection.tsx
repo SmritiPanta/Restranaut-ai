@@ -34,7 +34,7 @@ export default function FAQsSection({ classes, faqs }: FAQsSectionProps) {
             inquiries regarding Restronaut.ai.
           </p>
 
-          <Button className="mt-4">Ask a question</Button>
+          <Button className="mt-4 rounded-full">Ask questions</Button>
         </div>
 
         <Accordion.Root

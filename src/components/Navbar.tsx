@@ -164,7 +164,7 @@ export const Navbar = () => {
                       </Tabs.List>
                     </Container>
                   </Tabs.Root>
-                  <div className="p-1">
+                  <div className="py-2 border-t">
                     <Button
                       variant="inverted"
                       size="xl"

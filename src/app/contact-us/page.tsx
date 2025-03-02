@@ -113,7 +113,7 @@ export default function Home() {
             </div>
           </div>
         }
-        gradientColors={["#9767d2", "#18355a", "#a36de6", "#706ee1"]}
+        gradientColors={["#CE6CFF", "#945EDB", "#A56CCF", "#945EDB"]}
         rightContent={<ContactForm />}>
         <svg
           viewBox="0 0 1440 400"

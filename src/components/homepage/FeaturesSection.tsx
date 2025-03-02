@@ -27,7 +27,7 @@ export default function FeaturesSection({
         "py-16 bg-background text-foreground scroll-mt-16",
         classes?.root
       )}>
-      <Container className="text-center">
+      <Container className="text-center space-y-8">
         <div data-aos="fade-left">
           <h1 className="text-4xl lg:text-5xl font-bold lg:tracking-tight">
             Your brand, amplified. <br />
@@ -37,6 +37,12 @@ export default function FeaturesSection({
             Enhance your brand with unique and innovative app solutions.
           </p>
         </div>
+
+         <Button
+          className="bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-full"
+          data-aos="zoom-in">
+          Explore all possibilities!
+        </Button>
       </Container>
 
       <Container className="grid sm:grid-cols-2 lg:grid-cols-3 mt-16 gap-16">
@@ -45,7 +51,7 @@ export default function FeaturesSection({
             key={idx}
             className="flex gap-4 items-start"
             data-aos="fade-right">
-            <div className="mt-1 bg-primary text-primary-foreground rounded-full p-2 size-10 inline-flex items-center justify-center shrink-0 [&_svg]:size-5">
+            <div className="mt-1 text-primary-foreground [&_svg]:size-10 inline-flex items-center justify-center shrink-0">
               {feature.icon}
             </div>
             <div>
@@ -56,14 +62,6 @@ export default function FeaturesSection({
             </div>
           </div>
         ))}
-      </Container>
-
-      <Container className="flex items-center justify-center pt-8">
-        <Button
-          className="bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-full"
-          data-aos="zoom-in">
-          Explore all possibilities!
-        </Button>
       </Container>
     </section>
   );

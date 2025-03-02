@@ -61,15 +61,17 @@ export const Footer: React.FC<FooterProps> = ({ classes }) => {
                 />
                 <Button className="absolute right-1 top-1">Subscribe</Button>
               </div>
+              <small className="text-muted-foreground">By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.
+              </small>
             </div>
           </form>
         </div>
 
         <div
-          className="flex flex-col gap-y-7"
+          className="flex flex-col gap-y-7 md:ms-auto"
           data-aos="fade-left"
           data-aos-delay="300">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
             {Object.keys(SITE_LINKS).map((siteGroup, idx) => (
               <div
                 key={idx}
@@ -116,8 +118,15 @@ export const Footer: React.FC<FooterProps> = ({ classes }) => {
       </Container>
 
       <div className={twMerge("bg-muted border-t", classes?.copyrightRoot)}>
-        <Container className="py-2 flex items-center justify-center text-muted-foreground text-sm font-medium">
-          &copy; Copyright {new Date().getFullYear()}, All Rights Reserved
+        <Container className="py-2 flex items-center justify-between text-muted-foreground text-sm font-medium">
+        <span>
+           &copy; Copyright {new Date().getFullYear()} Restronaut Technologies. All rights reserved.
+           </span>
+           <div className="inline-flex items-center gap-2">
+           <Link href="/" className="hover:underline hover:text-primary">Terms & Services</Link>
+           <div className="size-1 bg-foreground/50 rounded-full" />
+           <Link href="/" className="hover:underline hover:text-primary">Privacy Policy</Link>
+           </div>
         </Container>
       </div>
     </footer>
