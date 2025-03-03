@@ -106,7 +106,7 @@ const FilmGrainShaderMaterial = shaderMaterial(
 extend({ FilmGrainShaderMaterial });
 
 export const PlaneShader: React.FC<{ colors: string[] }> = ({ colors }) => {
-  const shaderRef = React.useRef<any>(null);
+  const shaderRef = React.useRef(null);
   const [resolution, setResolution] = React.useState([0, 0]);
 
   React.useEffect(() => {

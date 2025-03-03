@@ -22,7 +22,7 @@ export const AppLogo: React.FC<AppLogoProps> = ({
   const Component = href ? Link : "div";
   return (
     <Component
-      href={href as any}
+      href={href as unknown}
       className={twMerge(
         "group inline-flex items-center gap-2 text-foreground transition-all",
         classes?.root

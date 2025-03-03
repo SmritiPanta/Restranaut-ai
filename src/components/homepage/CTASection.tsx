@@ -17,7 +17,7 @@ export default function CTASection() {
                 Ready to reach the stratosphere with Restronaut?
               </h2>
               <p className="text-gray-200 md:text-gray-400 font-medium text-sm md:text-base tracking-tight">
-                Partner with Restronaut to elevate your restaurant's digital
+                Partner with Restronaut to elevate your restaurant&apos;s digital
                 presence. Our innovative solutions streamline operations,
                 enhance customer engagement, and boost online visibility,
                 helping you thrive in the digital age.

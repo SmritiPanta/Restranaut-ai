@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
 import * as React from "react";
-import { twJoin } from "tailwind-merge";
 import { GradientScene } from "./GradientScene";
 import { Container } from "@/components/Container";
 import { Button, type ButtonProps } from "@/components/Button";
 
-const gradientColors = ["#FF758C", "#7A691E", "#311EFF", "#9B009B"];
+// const gradientColors = ["#FF758C", "#7A691E", "#311EFF", "#9B009B"];
 
 type HeroSectionProps = {
+  id?: string;
   title: string;
   description: string | React.ReactElement;
 

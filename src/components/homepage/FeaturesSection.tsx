@@ -3,7 +3,6 @@ import type { ClassValue } from "tailwind-variants";
 
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
-import { ANIMATION_DELAY } from "@/lib/siteConfig";
 
 export type Feature = {
   title: string;

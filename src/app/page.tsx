@@ -1,13 +1,9 @@
 "use client";
 
-import AOS from "aos";
 import * as React from "react";
 import { BsGraphUpArrow } from "react-icons/bs";
-import { MdCenterFocusStrong } from "react-icons/md";
 import {
-  FaPaintRoller,
   FaArrowRight,
-  FaArrowRightArrowLeft,
   FaMicrochip,
   FaToolbox,
   FaUsers,
@@ -15,7 +11,6 @@ import {
 } from "react-icons/fa6";
 import { LuPaintRoller } from "react-icons/lu";
 
-import ScaleAndDecideIcon from "@/assets/scale-decide-icon.svg"
 import AnalyzeAndOptimizeIcon from "@/assets/analyze-optimize-icon.svg"
 import BrandCentricIcon from "@/assets/brand-centric-icon.svg"
 
