@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 
 import { twJoin } from "tailwind-merge";
-import { ThemeProvider } from "next-themes";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
@@ -51,10 +50,10 @@ export default function RootLayout(
         <style id="theme-color">{generateCSS()}</style>
       </head>
       <body className={twJoin(essenFont.variable, interFont.className)}>
-        <ThemeProvider defaultTheme="dark" attribute="class">
-          <Provider>{props.children}</Provider>
-        </ThemeProvider>
-        <Analytics />
+        <Provider>
+          {props.children}
+          <Analytics />
+        </Provider>
       </body>
     </html>
   );

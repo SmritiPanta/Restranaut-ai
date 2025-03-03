@@ -34,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ classes }) => {
         <div className="flex flex-col gap-y-7" data-aos="fade-right">
           <AppLogo href="/" classes={{ text: "hover:text-primary" }} />
 
-          <div className="lg:max-w-[416px] text-muted-foreground">
+          <div className="lg:max-w-[416px] text-muted-foreground max-w-xl">
             An all-in-one platform built by restauranteurs, for restauranteurs,
             designed to streamline operations, enhance customer experiences, and
             drive business growth.
@@ -61,14 +61,16 @@ export const Footer: React.FC<FooterProps> = ({ classes }) => {
                 />
                 <Button className="absolute right-1 top-1">Subscribe</Button>
               </div>
-              <small className="text-muted-foreground">By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.
+              <small className="text-muted-foreground">
+                By subscribing you agree to with our Privacy Policy and provide
+                consent to receive updates from our company.
               </small>
             </div>
           </form>
         </div>
 
         <div
-          className="flex flex-col gap-y-7 md:ms-auto"
+          className="flex flex-col gap-y-7 lg:ms-auto"
           data-aos="fade-left"
           data-aos-delay="300">
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -118,15 +120,20 @@ export const Footer: React.FC<FooterProps> = ({ classes }) => {
       </Container>
 
       <div className={twMerge("bg-muted border-t", classes?.copyrightRoot)}>
-        <Container className="py-2 flex items-center justify-between text-muted-foreground text-sm font-medium">
-        <span>
-           &copy; Copyright {new Date().getFullYear()} Restronaut Technologies. All rights reserved.
-           </span>
-           <div className="inline-flex items-center gap-2">
-           <Link href="/" className="hover:underline hover:text-primary">Terms & Services</Link>
-           <div className="size-1 bg-foreground/50 rounded-full" />
-           <Link href="/" className="hover:underline hover:text-primary">Privacy Policy</Link>
-           </div>
+        <Container className="py-2 flex flex-col md:flex-row items-center justify-between text-muted-foreground text-sm font-medium">
+          <span>
+            &copy; Copyright {new Date().getFullYear()} Restronaut Technologies.
+            All rights reserved.
+          </span>
+          <div className="inline-flex items-center gap-2">
+            <Link href="/" className="hover:underline hover:text-primary">
+              Terms & Services
+            </Link>
+            <div className="size-1 bg-foreground/50 rounded-full shrink-0" />
+            <Link href="/" className="hover:underline hover:text-primary">
+              Privacy Policy
+            </Link>
+          </div>
         </Container>
       </div>
     </footer>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import * as React from "react";
 import { Tabs } from "@ark-ui/react";
 import { useTheme } from "next-themes";
+import { twJoin } from "tailwind-merge";
 import { Dialog, ScrollArea } from "radix-ui";
 
 import * as Icons from "@/components/Icons";
@@ -68,31 +69,94 @@ function HeaderContent({ children }: { children?: React.ReactNode }) {
 }
 
 export const Navbar = () => {
+  const { setTheme } = useTheme();
+  const [scrolled, setScrolled] = React.useState(false);
   const [activeLink, setActiveLink] = React.useState("");
 
   React.useEffect(() => {
-    //const handleScroll = () => {
-    //  document.querySelectorAll("section[id]").forEach((section) => {
-    //    const rect = section.getBoundingClientRect();
-    //    if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-    //      if (section.id !== activeLink) setActiveLink(section.id);
-    //    }
-    //  });
-    //};
-    //
-    //handleScroll();
-    //window.addEventListener("scroll", handleScroll);
-    //return () => {
-    //  window.removeEventListener("scroll", handleScroll);
-    //};
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <>
-      <header></header>
+    <header
+      className={twJoin(
+        "fixed inset-x-0 top-0 transition-[padding] z-10000",
+        scrolled
+          ? "max-md:border-b max-md:bg-background/85 max-md:backdrop-blur-sm py-2"
+          : "py-4 lg:py-6"
+      )}>
+      <Container className="flex items-center">
+        <div className="inline-flex items-center">
+          <AppLogo
+            href="/"
+            classes={{ text: scrolled ? "text-foreground" : "text-white" }}
+          />
+        </div>
 
+        <div className="ms-auto inline-flex items-center gap-4">
+          <Tabs.Root
+            value={activeLink}
+            onValueChange={(ev) => {
+              if (ev.value !== activeLink) setActiveLink(ev.value);
+            }}>
+            <Tabs.List asChild>
+              <nav
+                className={twJoin(
+                  "hidden lg:flex items-center gap-1 relative overflow-hidden bg-background/85 backdrop-blur-sm border rounded-lg p-0.5"
+                )}>
+                <Tabs.Indicator className="bg-primary/15 rounded-lg h-(--height) w-(--width)" />
+                {SITE_LINKS.navlinks.links.map((link) => (
+                  <Tabs.Trigger
+                    asChild
+                    key={link.label}
+                    value={link.href.replace("#/", "")}>
+                    <Link
+                      href={link.href}
+                      className="px-4 py-2.5 rounded-lg text-sm font-medium text-foreground/70 hover:text-foreground aria-selected:!text-primary transition-colors">
+                      {link.label}
+                    </Link>
+                  </Tabs.Trigger>
+                ))}
+              </nav>
+            </Tabs.List>
+          </Tabs.Root>
+
+          <div className="inline-flex items-center gap-4">
+            <Button className="hidden md:inline-flex rounded-full" asChild>
+              <Link href="/request-demo">Request a demo</Link>
+            </Button>
+
+            <Button
+              variant="outline"
+              className="rounded-full"
+              onClick={() => {
+                setTheme((t) => (t === "light" ? "dark" : "light"));
+              }}>
+              <Icons.LightModeIcon className="dark:hidden" />
+              <Icons.DarkModeIcon className="hidden dark:inline" />
+            </Button>
+
+            <Button
+              variant="ghost"
+              className="group rounded-full [&_svg]:size-6 lg:hidden">
+              <Icons.MenuIcon className="inline group-aria-expanded:hidden" />
+              <Icons.CloseIcon className="hidden group-aria-expanded:inline" />
+            </Button>
+          </div>
+        </div>
+      </Container>
+    </header>
+  );
+
+  return (
+    <>
       <Dialog.Root>
-        <header className="fixed top-0 inset-x-0 bg-background/90 backdrop-blur-md z-100 border-b">
+        <header className="fixed top-0 inset-x-0">
           <HeaderContent>
             <Tabs.Root
               value={activeLink}
@@ -100,7 +164,7 @@ export const Navbar = () => {
                 if (ev.value !== activeLink) setActiveLink(ev.value);
               }}>
               <Tabs.List asChild>
-                <nav className="hidden lg:flex items-center gap-1 me-4 relative overflow-hidden">
+                <nav className="hidden lg:flex items-center gap-1 me-4 relative overflow-hidden bg-background/90 backdrop-blur-md z-100 border-b">
                   <Tabs.Indicator className="bg-primary/15 rounded-lg h-(--height) w-(--width)" />
                   {SITE_LINKS.navlinks.links.map((link) => (
                     <Tabs.Trigger

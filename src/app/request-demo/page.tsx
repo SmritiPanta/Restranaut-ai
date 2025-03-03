@@ -113,7 +113,6 @@ function RequestForDemoForm() {
 
       <div className="relative">
         <textarea
-          type="number"
           id="details"
           className="block px-3 pb-3.5 pt-4 w-full text-sm text-foreground/90 bg-background rounded-lg border-0 ring ring-border appearance-none focus:outline-none focus:ring-2 focus:ring-primary peer placeholder-background focus:placeholder-muted-foreground"
         />

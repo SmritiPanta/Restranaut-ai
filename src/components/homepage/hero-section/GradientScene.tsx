@@ -17,14 +17,18 @@ export const GradientScene: React.FC<GradientSceneProps> = (props) => {
   return (
     <div
       className={twMerge(
-        "absolute inset-0 pointer-events-none -z-1",
+        "absolute overflow-hidden pointer-events-none -z-1 flex",
         className
       )}>
+      <div className="relative size-full">
       <Canvas gl={{ antialias: true }} shadows>
         <PerspectiveCamera makeDefault position={[0, 0, 0.1]} />
         <fog args={["rgba(2, 6, 8, 1)", 30, 10]} attach="fog" />
         <PlaneShader colors={colors} />
       </Canvas>
+
+      
+      </div>
     </div>
   );
 };

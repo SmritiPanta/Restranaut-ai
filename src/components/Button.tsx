@@ -38,6 +38,9 @@ export type ButtonProps = React.ComponentProps<"button"> &
   ButtonVariants & {
     asChild?: boolean;
     isLoading?: boolean;
+
+    endContent?: React.ReactElement;
+    startContent?: React.ReactElement;
   };
 
 export const Button: React.FC<ButtonProps> = (props) => {
@@ -49,17 +52,25 @@ export const Button: React.FC<ButtonProps> = (props) => {
     variant,
     size,
     className,
+    startContent,
+    endContent,
     ...restProps
   } = props;
 
   const Component = asChild ? Slot.Root : "button";
+
+  const _startContent = React.useMemo(() => {
+    return isLoading ? <></> : startContent;
+  }, [isLoading, startContent]);
 
   return (
     <Component
       {...restProps}
       disabled={disabled || isLoading}
       className={buttonVariants({ variant, size, className })}>
+      {_startContent}
       <Slot.Slottable>{children}</Slot.Slottable>
+      {endContent}
     </Component>
   );
 };

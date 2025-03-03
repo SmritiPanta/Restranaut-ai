@@ -63,7 +63,6 @@ function ContactForm() {
 
       <div className="relative">
         <textarea
-          type="number"
           id="details"
           className="block px-3 pb-3.5 pt-4 w-full text-sm text-foreground/90 bg-background rounded-lg border-0 ring ring-border appearance-none focus:outline-none focus:ring-2 focus:ring-primary peer placeholder-background focus:placeholder-muted-foreground"
         />
@@ -105,7 +104,7 @@ export default function Home() {
               product, or submit a request.
             </p>
             <div>
-              <strong>General Questions:</strong>
+              <strong className="text-foreground">General Questions:</strong>
               <p className="text-xl text-foreground/70 text-pretty">
                 For all other questions, please contact us via email. We will
                 get back to you within 48 hours.

@@ -24,7 +24,7 @@ export default function FeaturesSection({
     <section
       id="/features"
       className={twMerge(
-        "py-16 bg-background text-foreground scroll-mt-16",
+        "py-16 bg-background text-foreground scroll-mt-16 rounded-t-lg",
         classes?.root
       )}>
       <Container className="text-center space-y-8">
@@ -38,7 +38,7 @@ export default function FeaturesSection({
           </p>
         </div>
 
-         <Button
+        <Button
           className="bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-full"
           data-aos="zoom-in">
           Explore all possibilities!
@@ -51,7 +51,7 @@ export default function FeaturesSection({
             key={idx}
             className="flex gap-4 items-start"
             data-aos="fade-right">
-            <div className="mt-1 text-primary-foreground [&_svg]:size-10 inline-flex items-center justify-center shrink-0">
+            <div className="mt-1 text-primary [&_svg]:size-10 inline-flex items-center justify-center shrink-0">
               {feature.icon}
             </div>
             <div>

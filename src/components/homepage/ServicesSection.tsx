@@ -66,9 +66,7 @@ export default function ServicesSection({
           <div
             key={idx}
             className="group grid md:grid-cols-2 py-10 gap-x-12 lg:gap-x-16">
-            <div
-              className="grid place-items-center"
-              data-aos= "fade-left">
+            <div className="grid place-items-center" data-aos="fade-left">
               {getExtension(service.asset.src) === "video" ? (
                 <video
                   autoPlay

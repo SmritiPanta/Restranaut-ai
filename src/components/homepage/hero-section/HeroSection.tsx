@@ -26,32 +26,14 @@ export default function HeroSection({
   children,
   rightContent
 }: HeroSectionProps) {
-  const [enableBgEffect, setEnableBgEffect] = React.useState(true);
-
-  React.useEffect(() => {
-    /** eslint-disable-next-line eqeqeq */
-    setEnableBgEffect(localStorage.getItem("bg_effect") != "false");
-  }, []);
 
   return (
     <section
       id="/"
-      className={twJoin(
-        "relative",
-        !enableBgEffect && "bg-background text-foreground"
-      )}>
+      className="relative px-4 pt-4 overflow-hidden">
       <Container className="grid lg:grid-cols-2 pt-32 pb-16 sm:pt-48 md:py-52 gap-8 lg:gap-16 z-10">
-        <button
-          className="size-48 absolute right-0 top-16 opacity-0 z-1000"
-          onClick={() => {
-            setEnableBgEffect((v) => {
-              localStorage.setItem("bg_effect", JSON.stringify(!v));
-              return !v;
-            });
-          }}
-        />
 
-        <div className={twJoin(enableBgEffect && "dark")}>
+        <div className="dark">
           <h1
             className="text-5xl font-medium tracking-tight text-foreground sm:text-7xl text-balance"
             data-aos="fade-right">
@@ -86,7 +68,7 @@ export default function HeroSection({
         {rightContent}
       </Container>
 
-      {enableBgEffect && <GradientScene colors={gradientColors} />}
+        <GradientScene className="inset-4 rounded-lg" colors={gradientColors} />
       {children}
     </section>
   );

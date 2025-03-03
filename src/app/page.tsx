@@ -6,12 +6,18 @@ import { BsGraphUpArrow } from "react-icons/bs";
 import { MdCenterFocusStrong } from "react-icons/md";
 import {
   FaPaintRoller,
+  FaArrowRight,
   FaArrowRightArrowLeft,
   FaMicrochip,
   FaToolbox,
   FaUsers,
   FaTimeline
 } from "react-icons/fa6";
+import { LuPaintRoller } from "react-icons/lu";
+
+import ScaleAndDecideIcon from "@/assets/scale-decide-icon.svg"
+import AnalyzeAndOptimizeIcon from "@/assets/analyze-optimize-icon.svg"
+import BrandCentricIcon from "@/assets/brand-centric-icon.svg"
 
 import { Navbar } from "@/components/Navbar";
 import HeroSection from "@/components/homepage/hero-section/HeroSection";
@@ -33,19 +39,19 @@ const features: Array<Feature> = [
     title: "Brand Centric",
     description:
       "Nothing is off your brand, every aspect of the application is tailored to your brand and strategy.",
-    icon: <MdCenterFocusStrong />
+    icon: <BrandCentricIcon />
   },
   {
     title: "Publish and edit",
     description:
       "Publish your new restaurant menus at any time you want according to your business need and stay ahead.",
-    icon: <FaPaintRoller />
+    icon: <LuPaintRoller />
   },
   {
     title: "Analyze and optimize",
     description:
       "Analyze every transaction of your restaurant and make astronaut your most valuable asset with tools for AI powered statistics.",
-    icon: <FaArrowRightArrowLeft />
+    icon: <AnalyzeAndOptimizeIcon className="fill-primary" />
   },
   {
     title: "Scale and Decide",
@@ -148,7 +154,14 @@ export default function Home() {
         description="An all-in-one platform built by restaurateurs, for restaurateurs, designed to streamline operations, enhance customer experiences, and drive business growth."
         gradientColors={["#FF758C", "#7A691E", "#311EFF", "#9B009B"]}
         actions={[
-          { children: "Contact Us", size: "xl", className: "rounded-full" }
+          {
+            children: "Contact Us",
+            size: "xl",
+            className: "group rounded-full",
+            endContent: (
+              <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
+            )
+          }
         ]}
       />
       <StatsSection
