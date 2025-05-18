@@ -11,8 +11,8 @@ import {
 } from "react-icons/fa6";
 import { LuPaintRoller } from "react-icons/lu";
 
-import AnalyzeAndOptimizeIcon from "@/assets/analyze-optimize-icon.svg"
-import BrandCentricIcon from "@/assets/brand-centric-icon.svg"
+import AnalyzeAndOptimizeIcon from "@/assets/analyze-optimize-icon.svg";
+import BrandCentricIcon from "@/assets/brand-centric-icon.svg";
 
 import { Navbar } from "@/components/Navbar";
 import HeroSection from "@/components/homepage/hero-section/HeroSection";

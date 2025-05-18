@@ -24,7 +24,7 @@ export const SITE_LINKS = {
   navlinks: {
     title: "Primary Pages",
     links: [
-      { label: "Home", href: "/#/" },
+      { label: "PlatForm", href: "/platform-page" },
       { label: "Services", href: "/#/services" },
       { label: "Features", href: "/#/features" },
       { label: "FAQs", href: "/#/faqs" },
@@ -44,6 +44,32 @@ export const SITE_LINKS = {
     links: [
       { label: "Blogs", href: "/#/blogs", icon: <FaBlog /> },
       { label: "RSS", href: "/#/rss", icon: <FaRss /> }
+    ] as Array<SiteLink>
+  }
+} as const;
+
+export const PLATFORM_SITE_LINKS = {
+  navlinks: {
+    title: "Platform",
+    links: [{ label: "Pricing", href: "/pricing" }] as Array<SiteLink>
+  },
+  CompanyLink: {
+    title: "Resources",
+    links: [
+      { label: "About", href: "/#/about" },
+      { label: "Contact", href: "/#/contact-us" },
+      { label: "Social", href: "/#/social" }
+    ] as Array<SiteLink>
+  },
+  extraLinks: {
+    title: "Follow us on:",
+    links: [
+      { label: "Instagram", href: "https://www.instagram.com/restronaut.ai" },
+      { label: "Twitter (X)", href: "https://www.twitter.com/restronaut.ai" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/company/restronaut-ai/"
+      }
     ] as Array<SiteLink>
   }
 } as const;
