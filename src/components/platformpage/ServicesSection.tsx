@@ -75,7 +75,10 @@ export default function ServicesSection({
           {services.slice(0, 2).map((service, idx) => (
             <div
               key={idx}
-              className="group grid md:grid-cols-2 py-10 gap-x-12 lg:gap-x-16">
+              className={twMerge(
+                "group flex flex-col md:flex-row  justify-center items-center py-10 gap-x-12 lg:gap-x-16",
+                idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              )}>
               <div className="grid">
                 <div className="max-w-lg">
                   <div className="shrink-0 [&_svg]:size-16 text-muted-foreground mt-8 md:mt-4">
@@ -136,7 +139,10 @@ export default function ServicesSection({
           {services.slice(2, 4).map((service, idx) => (
             <div
               key={idx}
-              className="group grid md:grid-cols-2 py-10 gap-x-12 lg:gap-x-16">
+              className={twMerge(
+                "group flex flex-col md:flex-row justify-center items-center py-10 gap-x-12 lg:gap-x-16",
+                idx % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
+              )}>
               <div className="grid place-items-center" data-aos="fade-right">
                 {getExtension(service.asset.src) === "image" ? (
                   <Image
@@ -191,11 +197,14 @@ export default function ServicesSection({
             Precision Campaigns at your Fingertips
           </h2>
         </Container>
-        <Container className="bg-muted border mt-16 lg:rounded-lg overflow-x-clip">
+        <Container className="bg-muted  border mt-16 lg:rounded-lg overflow-x-clip">
           {services.slice(4, 7).map((service, idx) => (
             <div
               key={idx}
-              className="group grid md:grid-cols-2 py-10 gap-x-12 lg:gap-x-16">
+              className={twMerge(
+                "group flex flex-col md:flex-row  justify-center items-center py-10 gap-x-12 lg:gap-x-16",
+                idx % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
+              )}>
               <div className="grid">
                 <div className="max-w-lg">
                   <div className="shrink-0 [&_svg]:size-16 text-muted-foreground mt-8 md:mt-4">
