@@ -173,7 +173,7 @@ export default function Home() {
       <CTASection />
       <FAQsSection faqs={faqs} />
 
-      <Footer classes={{ curve: "fill-background" }} />
+      <Footer />
     </>
   );
 }

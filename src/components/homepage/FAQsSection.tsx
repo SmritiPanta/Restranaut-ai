@@ -63,7 +63,7 @@ export default function FAQsSection({ classes, faqs }: FAQsSectionProps) {
         </Accordion.Root>
       </Container>
 
-      <Container className="grid lg:grid-cols-3 gap-y-8 !hidden"></Container>
+      <Container className="grid lg:grid-cols-3 gap-y-8 "></Container>
     </section>
   );
 }
