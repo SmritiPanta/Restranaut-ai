@@ -9,7 +9,7 @@ import { Button, type ButtonProps } from "@/components/Button";
 
 type HeroSectionProps = {
   id?: string;
-  title: string;
+  title: string | React.ReactElement;
   description: string | React.ReactElement;
 
   gradientColors: string[];
@@ -26,13 +26,9 @@ export default function HeroSection({
   children,
   rightContent
 }: HeroSectionProps) {
-
   return (
-    <section
-      id="/"
-      className="relative px-4 pt-4 overflow-hidden">
+    <section id="/" className="relative px-4 pt-4 overflow-hidden">
       <Container className="grid lg:grid-cols-2 pt-32 pb-16 sm:pt-48 md:py-52 gap-8 lg:gap-16 z-10">
-
         <div className="dark">
           <h1
             className="text-5xl font-medium tracking-tight text-foreground sm:text-7xl text-balance"
@@ -68,7 +64,7 @@ export default function HeroSection({
         {rightContent}
       </Container>
 
-        <GradientScene className="inset-4 rounded-lg" colors={gradientColors} />
+      <GradientScene className="inset-4 rounded-lg" colors={gradientColors} />
       {children}
     </section>
   );
