@@ -25,7 +25,7 @@ export const SITE_LINKS = {
     title: "Primary Pages",
     links: [
       { label: "PlatForm", href: "/platform-page" },
-      { label: "Services", href: "/#/services" },
+      { label: "About", href: "/about-page" },
       { label: "Features", href: "/#/features" },
       { label: "FAQs", href: "/#/faqs" },
       { label: "Pricing", href: "/pricing" },
