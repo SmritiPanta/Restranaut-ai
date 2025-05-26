@@ -220,7 +220,7 @@ export const Navbar = () => {
                                 href={link.href}
                                 className="group relative isolate px-6 py-10 sm:py-12 text-foreground md:even:ps-16">
                                 {link.label}
-                                <span className="absolute inset-y-0 -z-10 transition-colors w-screen border-b border-foreground/20 transition md:group-odd:border-r group-odd:right-0 group-even:left-0 group-hover:bg-muted aria-selected:!text-primary" />
+                                <span className="absolute inset-y-0 -z-10  w-screen border-b border-foreground/20 transition md:group-odd:border-r group-odd:right-0 group-even:left-0 group-hover:bg-muted aria-selected:!text-primary" />
                               </Link>
                             </Dialog.Close>
                           </Tabs.Trigger>

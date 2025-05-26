@@ -27,7 +27,7 @@ export const SITE_LINKS = {
       { label: "PlatForm", href: "/platform-page" },
       { label: "About", href: "/about-page" },
       { label: "Features", href: "/#/features" },
-      { label: "FAQs", href: "/#/faqs" },
+      { label: "Socials", href: "/socials-page" },
       { label: "Pricing", href: "/pricing" },
       { label: "Contact Us", href: "/contact-us" }
     ] as Array<SiteLink>
